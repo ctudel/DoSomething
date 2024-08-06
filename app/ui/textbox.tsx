@@ -21,7 +21,7 @@ export default function Textbox() {
 
     return (
         <div className="flex flex-col items-center justify-center gap-3">
-            <form className="p-3 bg-white border-5 border-solid border-black rounded font-medium" onSubmit={handleSubmit}>
+            <form autocomplete="off" className="p-3 bg-white border-5 border-solid border-black rounded font-medium" onSubmit={handleSubmit}>
                 <input type="text" onChange={handleInput} className="p-3 outline-0 text-black" name="user-text" placeholder="What're you gunna do now?"/> 
                 <button className="px-3 py-0.5 text-white font-bold bg-black border-2 border-solid rounded border-black hover:text-black hover:bg-white" type="submit">{"->"}</button>
             </form>
