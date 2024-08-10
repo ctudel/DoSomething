@@ -17,9 +17,12 @@ export default function Page() {
         const inputParam = params.get('input');
 
         setInput(inputParam || '');
-    }, []);
+    }, [input]);
 
     console.log(input);
+
+    /* Create a collection of "bad words" */
+    /* Match any user-in words to "bad words" collection */
 
     return (
         <>
