@@ -19,7 +19,7 @@ export default function Textbox() {
         e.preventDefault();
         console.log("Form submitted with input: "+userText);
         console.log(getRandomTask("Hello"));
-        router.push("/task");
+        router.push(`/task?input=${encodeURIComponent(userText)}`);
     } 
 
     return (
