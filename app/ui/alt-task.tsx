@@ -28,7 +28,7 @@ export default function AltTask() {
 
     return (
         <>
-            <h1 className="font-bold text-5xl w-5/6">{search}</h1>
+            <h1 className="text-3xl font-bold md:text-5xl w-5/6">{search}</h1>
         </>
     )
 }

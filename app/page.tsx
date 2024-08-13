@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 export default function Page() {
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center">
-            <div className="w-screen pr-3 flex flex-row justify-center items-center gap-2 text-4xl text-center">
+        <div className="flex flex-col flex-1 justify-center items-center">
+            <div className="px-3 flex flex-row flex-1 justify-center items-center gap-2 text-4xl text-center">
                 <Image
                     src="/leaves.png"
                     alt="Two Leaves"
@@ -16,9 +16,6 @@ export default function Page() {
                 <h1>Whatcha doing?</h1>
             </div>
 
-            <div className="w-screen">
-                <Textbox />
-            </div>
+            <Textbox />
         </div>
-    )
-}
+)}
