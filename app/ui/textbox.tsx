@@ -15,10 +15,10 @@ export default function Textbox() {
     }, 100);
 
 
+    /* Embed query and route */
     function handleSubmit(e: any) {
         e.preventDefault();
         console.log("Form submitted with input: "+userText);
-        console.log(getRandomTask("Hello"));
         router.push(`/task?input=${encodeURIComponent(userText)}`);
     } 
 
@@ -30,17 +30,4 @@ export default function Textbox() {
             </form>
         </div>
     )
-}
-
-/* Test random task generator */
-function getRandomTask(prompt: string): string {
-    const tasks = ["Do something", "Well ain't that something"];
-    let index = getRandomNumber(0, tasks.length - 1); 
-    return tasks[index];
-}
-
-/* Test random number generator */
-function getRandomNumber(min: number, max: number): number {
-    let randNum = Math.random();
-    return Math.floor(randNum * (max - min + 1)) + min
 }
