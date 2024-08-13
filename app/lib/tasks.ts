@@ -1,11 +1,3 @@
-// export interface TaskType {
-//     [key: string]: string;
-// }
-
-// export const altTasks: TaskType = {
-//     phone: "Let's do something else!",
-// }
-
 export const habits: string[] = [
     'phone',
     'lay',
@@ -14,4 +6,15 @@ export const habits: string[] = [
     'nap',
     'sleep',
     'chill',
+    'nothing',
+    "i don't know",
+    'not sure',
 ];
+
+export const altTasks: string[] = [
+    "Let's do something else!",
+    "Take a walk, see if that changes!",
+    "Let's explore other options while grabbing a snack!",
+]
+
+
