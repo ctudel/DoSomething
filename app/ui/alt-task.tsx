@@ -1,6 +1,7 @@
 'use client'
 
-import { habits } from '@/app/lib/tasks' // Collection of "bad habits"
+import { habits, altTasks } from '@/app/lib/tasks' // Collection of "bad habits"
+import { getKey, getRandomTask, getRandomNumber } from '@/app/lib/task-functions'
 import { useEffect, useState } from 'react';
 
 export default function AltTask() {
@@ -8,8 +9,6 @@ export default function AltTask() {
     let inputArr;
     let search = '';
     const [input, setInput] = useState('');
-    
-    console.log('\n\nSTARTING PROGRAM\n');
 
     useEffect(() => {
         // Create a URLSearchParams object from the current URL
@@ -21,42 +20,50 @@ export default function AltTask() {
         setInput(inputParam || ''); 
     }, []);
 
-    inputArr = input.split(' ');
-
-    console.log('Input Array:'+inputArr); 
+    inputArr = input.toLowerCase().split(/, |,| |; |;|\|/); // Delimit comma-space, comma, space, etc.
+    
     console.log('\n\nStarting loop...\n');
-    
-    /* Call habit detection function */
-    search = detectBadHabit(inputArr); 
-    
+    search = detectBadHabit(inputArr); // Call habit detection function
     console.log('\nTask Generated: '+search);
 
     return (
         <>
-            <h1 className="font-bold text-5xl">{search}</h1>
+            <h1 className="font-bold text-5xl w-5/6">{search}</h1>
         </>
     )
 }
 
 
 /* Detection logic for bad habits */
-function detectBadHabit(inputArr: string[]) {
+function detectBadHabit(inputArr: string[]): string {
 
     // Detection logic for any bad habits
     for (let i = 0; i < inputArr.length; i++) {
 
-        const key = inputArr[i];
+        /* Scan sentence for habits */
+        const key = getKey(inputArr, i); 
         const altTask = habits.find(habit => {
             return habit === key;
         }); 
 
-        console.log('key: '+key);
-        console.log('altTask: '+altTask);
+        console.log('Key to match: '+key);
+        console.log('Matched: '+altTask);
 
         if (altTask) {
-            return "Let's do something else!";
+            const newTask = getRandomTask(altTasks);
+            return newTask;
         }
+
+        /* Scan for specific habits and create logic to give specific responses
+         *  i.e. "sleep" could be a good thing or a bad thing
+         *      based on time
+         */
+         // if (subHabits[key]) {
+            
+         // }
     }
     
     return 'Well that sounds like a great idea!';
 }
+
+
