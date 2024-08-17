@@ -41,17 +41,11 @@ body {
 .sidebar {
   display: grid;
   grid-template-rows: repeat(12, minmax(0, 1fr)); 
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* mobile layout */
-  width: 100vw;
-  height: 11rem;
+  grid-template-columns: 1fr;
+  width: 13rem;
+  height: 100vh;
   padding: 0.75rem;
   background-color: var(--sidebar-rgb);
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr;
-    width: 13rem;
-    height: 100vh;
-  }
 }
 
 .button-container {
@@ -59,10 +53,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items:center;
+  grid-row:3/7;
+  row-gap: 3.5rem;
 
   @media (min-width: 768px) {
     grid-row: 5/9;
-    row-gap: 3.5rem;
   }
 }
 
@@ -73,9 +68,13 @@ body {
   gap: 0.75rem;
   padding: 0.75rem;
   border-radius: 0.25rem;
-  width: 10rem;
+  width: 8rem;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+
+  @media (min-width: 768px) {
+    width: 10rem;
+  }
 }
 
 .button:hover {

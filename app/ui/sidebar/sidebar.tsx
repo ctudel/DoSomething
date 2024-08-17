@@ -13,7 +13,7 @@ export default function Sidebar(): any {
 
 function Logo(): any {
   return (
-    <div className="row-span-3 col-start-2 col-span-2 flex justify-center items-center">
+    <div className="flex justify-center items-center row-span-2 md:row-span-3">
       <Image
         src="/chopper.png"
         alt="Chopper from one piece"
@@ -25,7 +25,7 @@ function Logo(): any {
       <Image
         src="/chopper.png"
         alt="Chopper from one piece"
-        className="md:hidden"
+        className="block md:hidden"
         width={100}
         height={100}
       />
