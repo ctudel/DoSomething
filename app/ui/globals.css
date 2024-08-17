@@ -4,30 +4,80 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 250, 250, 250;
+  --sidebar-rgb: #fff;
+  --hover-rgb: 245, 245, 245;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 38, 38, 38;
+    --sidebar-rgb: #000;
+    --hover-rgb: 64, 64, 64;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
+  /* background: linear-gradient( */
+  /*     to bottom, */
+  /*     transparent, */
+  /*     rgb(var(--background-end-rgb)) */
+  /*   ) */
+  /*   rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+/* Sidebar Styling */
+
+.sidebar {
+  display: grid;
+  grid-template-rows: repeat(12, minmax(0, 1fr)); 
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* mobile layout */
+  width: 100vw;
+  height: 11rem;
+  padding: 0.75rem;
+  background-color: var(--sidebar-rgb);
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 13rem;
+    height: 100vh;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+  @media (min-width: 768px) {
+    grid-row: 5/9;
+    row-gap: 3.5rem;
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  width: 10rem;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+.button:hover {
+  background-color: rgb(var(--hover-rgb));
 }
