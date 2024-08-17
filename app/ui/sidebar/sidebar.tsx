@@ -21,14 +21,6 @@ function Logo(): any {
         width={200}
         height={200}
       />
-
-      <Image
-        src="/chopper.png"
-        alt="Chopper from one piece"
-        className="block md:hidden"
-        width={100}
-        height={100}
-      />
     </div>
   );
 }

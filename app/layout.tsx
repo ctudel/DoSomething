@@ -18,14 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-row items-center gap-0">
-          <div className="hidden md:block">
-            <Sidebar />
-          </div>
+        <div className="flex flex-col-reverse items-center h-screen md:flex-row">
+          <Sidebar />
 
-          <div className="flex flex-col justify-center items-center h-screen md:w-4/5 md:h-full">
+          <div className="flex flex-col justify-center items-center h-5/6 md:w-4/5">
             {children}
           </div>
+
         </div>
       </body>
     </html>
