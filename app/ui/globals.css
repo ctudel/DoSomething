@@ -13,7 +13,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 38, 38, 38;
-    --sidebar-rgb: #000;
+    --sidebar-rgb: 30, 30, 30;
     --hover-rgb: 64, 64, 64;
   }
 }
