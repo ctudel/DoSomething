@@ -10,7 +10,8 @@ const db = new Database('somethingtodo_db.sqlite', { verbose: console.log });
 db.exec(`CREATE TABLE IF NOT EXISTS 
 todos (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  task TEXT NOT NULL
+  task TEXT,
+  priority int
 )`);
 
 export default function handler(
@@ -39,9 +40,11 @@ let addTodo = (
   res: NextApiResponse<ResponseData>
 ) => {
   // Form info
-  const { task } = req.body;
-  const insertData = db.prepare('INSERT INTO todos (task) VALUES (?)')
-  const data = insertData.run(task);
+  const { task } = req.body; // equivalent of req.body.task
+  const { priority = 0 } = req.body; // equivalent of p = req.body.priority; if (!p) p = 0;
+
+  const insertData = db.prepare('INSERT INTO todos (task, priority) VALUES (?, ?)');
+  const data = insertData.run(task, priority);
 
   console.log('Changes:', data.changes);
   console.log('Last Insert Row ID', data.lastInsertRowid);
