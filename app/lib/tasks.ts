@@ -6,10 +6,19 @@ export const habits: string[] = [
   'nap',
   'sleep',
   'chill',
+  'play',
   'nothing',
   "i don't know",
+  "i don't want",
   'not sure',
 ];
+
+// FIXME: create another array for words like 'play'.
+// These are words that aren't direct indicators of 'bad habits'
+// and should instead suggest user to be mindful of their time
+// and reflect if they could be doing something else
+//
+// NOTE: This could be included in time detection tasks
 
 export const altTasks: string[] = [
   "Let's do something else!",
