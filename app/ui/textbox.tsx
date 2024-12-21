@@ -2,24 +2,25 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useDebouncedCallback } from 'use-debounce';
 
 export default function Textbox() {
   const [userText, setUserText] = useState('');
   const router = useRouter();
 
-  /* Called once user has stopped typing for 300ms */
-  const handleInput = useDebouncedCallback((e: any) => {
+  /* Called once user has stopped typing for 150ms */
+  let handleInput = (e: any) => {
     setUserText(e.target.value);
     console.log(userText);
-  }, 100);
+  }
 
 
   /* Embed query and route */
   let handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log("Form submitted with input: " + userText);
-    router.push(`/task?input=${encodeURIComponent(userText)}`);
+    setTimeout(() => {
+      console.log("Form submitted with input: " + userText);
+      router.push(`/task?input=${encodeURIComponent(userText)}`);
+    }, 10);
   }
 
   return (
